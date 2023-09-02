@@ -20,5 +20,23 @@ namespace NLogLibrary.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("[action]")]
+        public IActionResult Erroor()
+        {
+            int x=0, y=0;
+            try
+            {
+                int result = x / y;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex,"Exception Bas");
+                return BadRequest();
+            }
+           
+
+            return NoContent();
+        }
     }
 }
